@@ -1,36 +1,51 @@
-# Vite React SWC TypeScript Template
+# Data Architecture API
 
-This is a template repository for creating React projects with TypeScript using [Vite](https://vitejs.dev).
+This repository contains the front-end portion of a web application developed as part of the Data Architecture and Back-end II module at [Growdev](https://www.growdev.com.br/).
 
 ## Table of Contents
 
-- [Vite React SWC TypeScript Template](#vite-react-swc-typescript-template)
-  - [Table of Contents](#table-of-contents)
-  - [Description](#description)
-  - [Technologies](#technologies)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Contributing](#contributing)
-  - [License](#license)
+-   [Data Architecture API](#data-architecture-api)
+    -   [Table of Contents](#table-of-contents)
+    -   [Description](#description)
+    -   [Technologies](#technologies)
+    -   [Installation](#installation)
+    -   [Usage](#usage)
+    -   [Contributing](#contributing)
+    -   [License](#license)
 
 ## Description
 
-This repository provides a template for React with TypeScript that is based on Vite. It includes a basic folder structure with pre-configured page routes. Additionally, this project incorporates the HMR (Hot Module Replacement) technology to accelerate the development process. The SWC compiler, based on Rust, is also used to generate optimized and high-performing JavaScript code.
+The purpose of this project is to efficiently consume the [API](https://github.com/mmcamargo/data-architecture-api) developed in parallel. The web application uses modern React tools such as Vite with SWC and RTK Queries of Redux Toolkit. The main focus of the project is the code, so there is not much emphasis on design.
 
 ## Technologies
 
-The technologies used in this template include:
+The technologies used in this project include:
 
 -   React
 -   TypeScript
+-   Vite
+-   SWC
+-   MUI Material
+-   Redux Toolkit
+-   RTK Query
 
 ## Installation
 
-To use this template, just use the Github `Use this template` feature.
+To use the project in this repository, clone it to your local machine using the following command:
+
+```bash
+git clone https://github.com/mmcamargo/data-architecture-api.git
+```
+
+Install the dependencies:
+
+```bash
+npm install
+```
 
 ## Usage
 
-After installed, the development server can be started with this command line:
+Start the development server after installation:
 
 ```bash
 npm run dev
