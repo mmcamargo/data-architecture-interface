@@ -1,10 +1,10 @@
-# Data Architecture API
+# Data Architecture Interface
 
 This repository contains the front-end portion of a web application developed as part of the Data Architecture and Back-end II module at [Growdev](https://www.growdev.com.br/).
 
 ## Table of Contents
 
--   [Data Architecture API](#data-architecture-api)
+-   [Data Architecture Interface](#data-architecture-interface)
     -   [Table of Contents](#table-of-contents)
     -   [Description](#description)
     -   [Technologies](#technologies)
