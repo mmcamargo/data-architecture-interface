@@ -1,12 +1,12 @@
-import '@/normalize.css';
-import { AppRoutes } from './routes';
+import { darkTheme } from '@/configs';
+import { AppRoutes } from '@/routes';
+import { ThemeProvider, CssBaseline } from '@mui/material';
 
-function App() {
+export function App() {
 	return (
-		<>
+		<ThemeProvider theme={darkTheme}>
+			<CssBaseline />
 			<AppRoutes />
-		</>
+		</ThemeProvider>
 	);
 }
-
-export default App;

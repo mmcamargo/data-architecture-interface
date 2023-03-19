@@ -1,3 +1,3 @@
-export * from './conditionally-render/ConditionallyRender';
-export * from './login/Login';
-export * from './register/Register';
+export * from './conditionally-render';
+export * from './register';
+export * from './login';

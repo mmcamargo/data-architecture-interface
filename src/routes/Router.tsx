@@ -1,15 +1,13 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Access, Home } from '@/pages';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-function AppRoutes(): JSX.Element {
+export function AppRoutes(): JSX.Element {
 	return (
 		<BrowserRouter>
 			<Routes>
 				<Route path='/' element={<Access />}></Route>
-				<Route path='/' element={<Home />}></Route>
+				<Route path='/home' element={<Home />}></Route>
 			</Routes>
 		</BrowserRouter>
 	);
 }
-
-export default AppRoutes;

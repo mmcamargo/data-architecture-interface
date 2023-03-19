@@ -1,5 +1,5 @@
-import { useLoginForm } from '../../hooks';
-import { ConditionallyRender } from '../';
+import { useLoginForm } from '@/pages/access/utils';
+import { ConditionallyRender } from '@/pages/access/components';
 import { Box, Typography, TextField, Button } from '@mui/material';
 
 export function Login(

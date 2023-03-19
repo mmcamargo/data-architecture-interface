@@ -1,4 +1,8 @@
-import { ConditionallyRender, Register, Login } from './components';
+import {
+	ConditionallyRender,
+	Register,
+	Login,
+} from '@/pages/access/components';
 import { useState } from 'react';
 import { Container, Paper } from '@mui/material';
 

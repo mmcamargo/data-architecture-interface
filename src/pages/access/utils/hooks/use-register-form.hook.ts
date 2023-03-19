@@ -1,5 +1,5 @@
+import { registerSchema } from '@/pages/access/schemas';
 import { useFormik } from 'formik';
-import { registerSchema } from '../schemas';
 import { useState, useEffect } from 'react';
 
 export function useRegisterForm(
