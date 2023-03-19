@@ -1,3 +1,2 @@
-import Home from './home/Home';
-
-export { Home };
+export * from './home/Home';
+export * from './access/Access';
