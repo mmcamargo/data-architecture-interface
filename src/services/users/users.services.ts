@@ -8,6 +8,11 @@ interface ICreateUserDTO {
 	password: string;
 }
 
+interface ILoginDTO {
+	email: string;
+	password: string;
+}
+
 export const usersApi = createApi({
 	reducerPath: 'usersApi',
 	baseQuery: fetchBaseQuery({
@@ -22,7 +27,14 @@ export const usersApi = createApi({
 				body: data,
 			}),
 		}),
+		login: builder.mutation<IDefaultResponse, ILoginDTO>({
+			query: (data) => ({
+				url: `/login`,
+				method: 'POST',
+				body: data,
+			}),
+		}),
 	}),
 });
 
-export const { useCreateUserMutation } = usersApi;
+export const { useCreateUserMutation, useLoginMutation } = usersApi;

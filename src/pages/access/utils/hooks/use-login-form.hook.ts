@@ -1,30 +1,45 @@
+import { useLoginMutation } from '@/services';
+import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { useState, useEffect } from 'react';
 
 export function useLoginForm() {
+	const [login] = useLoginMutation();
+
+	const navigate = useNavigate();
+
 	const { values, resetForm, handleChange, handleSubmit } = useFormik({
 		initialValues: {
 			email: '',
 			password: '',
 		},
-		onSubmit(values, formikHelpers) {
-			console.log('Não implementado.');
+		async onSubmit(values, formikHelpers) {
+			const { email, password } = values;
 
-			// const { email, password } = values;
+			const response = await login({ email, password });
 
-			// const findedUser = array.find(
-			// 	(user) => user.email === email && user.password === password
-			// );
+			if ('error' in response) {
+				const { error } = response;
+				// @ts-expect-error
+				console.error(error.data.message);
 
-			// if (!findedUser) {
-			// 	setDisabledBtn(true);
-			// 	setShowAlert(true);
+				setDisabledBtn(true);
+				setShowAlert(true);
 
-			// 	setTimeout(() => {
-			// 		setDisabledBtn(false);
-			// 		setShowAlert(false);
-			// 	}, 3000);
-			// }
+				setTimeout(() => {
+					setDisabledBtn(false);
+					setShowAlert(false);
+				}, 3000);
+			}
+
+			if ('data' in response) {
+				const { data } = response;
+				console.log(data.data);
+
+				sessionStorage.setItem('uid', JSON.stringify(data.data));
+
+				navigate('/home');
+			}
 		},
 	});
 
