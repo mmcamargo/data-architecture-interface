@@ -1,7 +1,7 @@
 import { IDefaultResponse } from '@/shared/utils/interfaces';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const usersApi = createApi({
+export const usersApi = createApi({
 	reducerPath: 'usersApi',
 	baseQuery: fetchBaseQuery({
 		baseUrl: 'http://localhost:8081',
@@ -23,8 +23,4 @@ const usersApi = createApi({
 	}),
 });
 
-const { useGetAllUsersQuery, usePostUserMutation } = usersApi;
-
-export { useGetAllUsersQuery, usePostUserMutation };
-
-export default usersApi;
+export const { useGetAllUsersQuery, usePostUserMutation } = usersApi;
