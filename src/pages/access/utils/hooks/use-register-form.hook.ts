@@ -1,3 +1,4 @@
+import { useCreateUserMutation } from '@/services';
 import { registerSchema } from '@/pages/access/schemas';
 import { useFormik } from 'formik';
 import { useState, useEffect } from 'react';
@@ -5,6 +6,8 @@ import { useState, useEffect } from 'react';
 export function useRegisterForm(
 	setState: React.Dispatch<React.SetStateAction<boolean>>
 ) {
+	const [createUser] = useCreateUserMutation();
+
 	const {
 		values,
 		errors,
@@ -23,27 +26,31 @@ export function useRegisterForm(
 			confirmPassword: '',
 		},
 		validationSchema: registerSchema,
-		onSubmit(values, formikHelpers) {
-			console.log('Não implementado.');
+		async onSubmit(values, formikHelpers) {
+			const response = await createUser(values);
 
-			// const someEqualEmail = array.some(
-			// 	(user) => user.email === values.email
-			// );
+			if ('error' in response) {
+				const { error } = response;
+				// @ts-expect-error
+				console.error(error.data.message);
+				// @ts-expect-error
+				if (error.data.message.includes('e-mail')) {
+					setDisabledBtn(true);
+					setShowAlert(true);
 
-			// if (someEqualEmail) {
-			// 	setDisabledBtn(true);
-			// 	setShowAlert(true);
+					setTimeout(() => {
+						setDisabledBtn(false);
+						setShowAlert(false);
+					}, 3000);
 
-			// 	setTimeout(() => {
-			// 		setDisabledBtn(false);
-			// 		setShowAlert(false);
-			// 	}, 3000);
+					return;
+				}
+			}
 
-			// 	return;
-			// }
-
-			// resetForm();
-			// setState(false);
+			if ('data' in response) {
+				resetForm();
+				setState(false);
+			}
 		},
 	});
 
